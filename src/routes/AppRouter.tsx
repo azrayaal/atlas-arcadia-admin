@@ -28,9 +28,9 @@ import { RewardsPage } from "../modules/resident-app/RewardsPage"
 import { BillingPage } from "../modules/resident-app/BillingPage"
 
 const router = createBrowserRouter([
-  { path: "/", element: <LandingPage /> },
+  // { path: "/", element: <OwnerLayout /> },
   {
-    path: "/owner",
+    path: "/",
     element: <OwnerLayout />,
     children: [
       { index: true, element: <OwnerDashboard /> },
