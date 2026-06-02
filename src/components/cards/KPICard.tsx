@@ -29,7 +29,7 @@ export function KPICard({ label, value, change, changeLabel, icon, color = "defa
         <div className={cn(
           "w-10 h-10 rounded-xl flex items-center justify-center transition-colors",
           color === "gold" && "bg-amber-50 text-amber-600 group-hover:bg-amber-100",
-          color === "default" && "bg-zinc-100 text-zinc-500 group-hover:bg-zinc-200",
+          color === "default" && "bg-stone-100 text-stone-500 group-hover:bg-stone-200",
           color === "success" && "bg-emerald-50 text-emerald-600 group-hover:bg-emerald-100",
           color === "warning" && "bg-orange-50 text-orange-600 group-hover:bg-orange-100",
         )}>
@@ -46,12 +46,12 @@ export function KPICard({ label, value, change, changeLabel, icon, color = "defa
         )}
       </div>
       <div>
-        <div className="text-2xl font-bold text-zinc-900 tracking-tight">
+        <div className="text-2xl font-bold text-stone-900 tracking-tight">
           {value}{suffix}
         </div>
-        <div className="text-xs text-zinc-500 mt-1 font-medium">{label}</div>
+        <div className="text-xs text-stone-500 mt-1 font-medium">{label}</div>
         {changeLabel && (
-          <div className="text-xs text-zinc-400 mt-0.5">{changeLabel}</div>
+          <div className="text-xs text-stone-400 mt-0.5">{changeLabel}</div>
         )}
       </div>
     </motion.div>

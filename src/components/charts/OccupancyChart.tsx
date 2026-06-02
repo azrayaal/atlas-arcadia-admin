@@ -8,9 +8,9 @@ interface OccupancyLineProps {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white border border-zinc-100 rounded-xl shadow-card-hover p-3 text-xs">
-        <p className="font-semibold text-zinc-900">{label}</p>
-        <p className="text-zinc-600 mt-1">Hunian: <span className="font-bold text-zinc-900">{payload[0].value}%</span></p>
+      <div className="bg-white border border-stone-200 rounded-xl shadow-card-hover p-3 text-xs">
+        <p className="font-semibold text-stone-800">{label}</p>
+        <p className="text-stone-500 mt-1">Hunian: <span className="font-bold text-stone-800">{payload[0].value}%</span></p>
       </div>
     )
   }
@@ -21,9 +21,9 @@ export function OccupancyLineChart({ data, height = 200 }: OccupancyLineProps) {
   return (
     <ResponsiveContainer width="100%" height={height}>
       <LineChart data={data}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#f4f4f5" vertical={false} />
-        <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#71717a" }} axisLine={false} tickLine={false} />
-        <YAxis domain={[75, 100]} tick={{ fontSize: 11, fill: "#71717a" }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}%`} />
+        <CartesianGrid strokeDasharray="3 3" stroke="#f0ece6" vertical={false} />
+        <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#a8a29e" }} axisLine={false} tickLine={false} />
+        <YAxis domain={[75, 100]} tick={{ fontSize: 11, fill: "#a8a29e" }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}%`} />
         <Tooltip content={<CustomTooltip />} />
         <Line
           type="monotone"

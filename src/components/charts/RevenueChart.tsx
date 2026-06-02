@@ -10,13 +10,13 @@ interface RevenueChartProps {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white border border-zinc-100 rounded-xl shadow-card-hover p-3 text-xs">
-        <p className="font-semibold text-zinc-900 mb-2">{label}</p>
+      <div className="bg-white border border-stone-200 rounded-xl shadow-card-hover p-3 text-xs">
+        <p className="font-semibold text-stone-800 mb-2">{label}</p>
         {payload.map((entry: any) => (
           <div key={entry.dataKey} className="flex items-center gap-2 mb-1">
             <div className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }} />
-            <span className="text-zinc-600">{entry.name}:</span>
-            <span className="font-semibold text-zinc-900">Rp {entry.value}M</span>
+            <span className="text-stone-500">{entry.name}:</span>
+            <span className="font-semibold text-stone-800">Rp {entry.value}M</span>
           </div>
         ))}
       </div>
@@ -38,12 +38,12 @@ export function RevenueChart({ data, type = "area", dataKeys = defaultKeys, heig
     return (
       <ResponsiveContainer width="100%" height={height}>
         <BarChart data={data} barGap={2}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#f4f4f5" vertical={false} />
-          <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#71717a" }} axisLine={false} tickLine={false} />
-          <YAxis tick={{ fontSize: 11, fill: "#71717a" }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}M`} />
-          <Tooltip content={<CustomTooltip />} />
-          {dataKeys.map((dk) => (
-            <Bar key={dk.key} dataKey={dk.key} name={dk.name} fill={dk.color} radius={[4, 4, 0, 0]} />
+        <CartesianGrid strokeDasharray="3 3" stroke="#f0ece6" vertical={false} />
+        <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#a8a29e" }} axisLine={false} tickLine={false} />
+        <YAxis tick={{ fontSize: 11, fill: "#a8a29e" }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}M`} />
+        <Tooltip content={<CustomTooltip />} />
+        {dataKeys.map((dk) => (
+          <Bar key={dk.key} dataKey={dk.key} name={dk.name} fill={dk.color} radius={[4, 4, 0, 0]} />
           ))}
         </BarChart>
       </ResponsiveContainer>
@@ -61,9 +61,9 @@ export function RevenueChart({ data, type = "area", dataKeys = defaultKeys, heig
             </linearGradient>
           ))}
         </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="#f4f4f5" vertical={false} />
-        <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#71717a" }} axisLine={false} tickLine={false} />
-        <YAxis tick={{ fontSize: 11, fill: "#71717a" }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}M`} />
+        <CartesianGrid strokeDasharray="3 3" stroke="#f0ece6" vertical={false} />
+        <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#a8a29e" }} axisLine={false} tickLine={false} />
+        <YAxis tick={{ fontSize: 11, fill: "#a8a29e" }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}M`} />
         <Tooltip content={<CustomTooltip />} />
         {dataKeys.map((dk) => (
           <Area
