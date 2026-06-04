@@ -56,7 +56,6 @@ const router = createBrowserRouter([
       { path: "financial", element: <FinancialPage /> },
       { path: "cctv", element: <CCTVPage /> },
       { path: "residents", element: <ResidentsPage /> },
-      { path: "reports", element: <Navigate to="/owner/revenue" replace /> },
       { path: "settings", element: <Navigate to="/owner" replace /> },
       // Potensi Bisnis (investor-integrated)
       { path: "business", element: <BusinessUnitsPage /> },

@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { Camera, Radio, AlertCircle, CheckCircle2, Activity, Eye } from "lucide-react"
 import { Badge } from "../../components/ui/badge"
 import { cctvCameras, accessLogs } from "../../data/dummy"
+import { CCTVScene } from "../../components/cctv/CCTVScene"
 
 function CCTVCard({ camera, delay }: { camera: typeof cctvCameras[0]; delay: number }) {
   return (
@@ -12,39 +13,34 @@ function CCTVCard({ camera, delay }: { camera: typeof cctvCameras[0]; delay: num
     >
       {/* Camera preview area */}
       <div className="relative aspect-video bg-zinc-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-950">
-          {/* Simulated camera grid overlay */}
-          <div className="absolute inset-0 opacity-10"
-            style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "40px 40px" }}
-          />
-          {/* Simulated figure/shape in frame */}
-          <div className="absolute bottom-6 left-1/3 w-4 h-8 bg-white/10 rounded-sm" />
-          <div className="absolute bottom-6 left-1/3 -translate-x-1/2 w-4 h-4 rounded-full bg-white/10" style={{ marginBottom: "32px" }} />
+        {/* Animated CCTV scene */}
+        <CCTVScene cameraId={camera.id} />
 
+        <div className="absolute inset-0">
           {/* Corner brackets */}
           {[["top-2 left-2", "border-t border-l"], ["top-2 right-2", "border-t border-r"], ["bottom-2 left-2", "border-b border-l"], ["bottom-2 right-2", "border-b border-r"]].map(([pos, borders]) => (
-            <div key={pos} className={`absolute ${pos} w-5 h-5 ${borders} border-amber-400/60`} />
+            <div key={pos} className={`absolute ${pos} w-5 h-5 ${borders} border-amber-400/60 z-20`} />
           ))}
         </div>
 
         {/* Status indicator */}
-        <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+        <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 z-30">
           <div className={`w-2 h-2 rounded-full ${camera.status === "recording" ? "bg-red-500 animate-pulse" : camera.status === "online" ? "bg-emerald-400" : "bg-zinc-500"}`} />
-          <span className="text-[10px] font-medium text-white/80">{camera.status === "recording" ? "REC" : camera.status === "online" ? "LIVE" : "OFFLINE"}</span>
+          <span className="text-[10px] font-medium text-white/90">{camera.status === "recording" ? "REC" : camera.status === "online" ? "LIVE" : "OFFLINE"}</span>
         </div>
 
         {/* Camera ID */}
-        <div className="absolute top-2.5 right-2.5">
-          <span className="text-[10px] text-white/50 font-mono">{camera.id.toUpperCase()}</span>
+        <div className="absolute top-2.5 right-2.5 z-30">
+          <span className="text-[10px] text-white/60 font-mono">{camera.id.toUpperCase()}</span>
         </div>
 
         {/* Timestamp */}
-        <div className="absolute bottom-2 left-2 text-[10px] text-white/40 font-mono">
+        <div className="absolute bottom-2 left-2 text-[10px] text-white/50 font-mono z-30">
           {new Date().toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
         </div>
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-30">
           <button className="flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white text-xs font-medium">
             <Eye size={13} />
             Tampilkan Penuh

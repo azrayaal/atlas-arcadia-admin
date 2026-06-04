@@ -3,7 +3,7 @@ import { NavLink, Outlet, useLocation } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   LayoutDashboard, Building2, TrendingUp, Camera, Users,
-  Settings, Menu, X, Bell, ChevronDown, FileText,
+  Settings, Menu, X, Bell, ChevronDown,
   BarChart3, LogOut, PieChart, Cpu, MapPin, ChevronRight
 } from "lucide-react"
 import { cn } from "../../lib/utils"
@@ -18,7 +18,6 @@ const navItems = [
       { path: "/owner/financial", label: "Keuangan", icon: BarChart3 },
       { path: "/owner/cctv", label: "CCTV Monitor", icon: Camera },
       { path: "/owner/residents", label: "Penghuni", icon: Users },
-      { path: "/owner/reports", label: "Laporan", icon: FileText },
     ],
   },
   {
