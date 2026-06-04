@@ -45,7 +45,7 @@ export function OwnerLayout() {
   )
 
   return (
-    <div className="flex h-screen overflow-hidden" style={{ background: "#f8f7f3" }}>
+    <div className="flex h-screen overflow-hidden" style={{ background: "#edeae4" }}>
       {/* Mobile overlay */}
       <AnimatePresence>
         {sidebarOpen && (

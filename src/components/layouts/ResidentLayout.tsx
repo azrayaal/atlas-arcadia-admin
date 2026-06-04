@@ -13,7 +13,7 @@ const tabs = [
 
 export function ResidentLayout() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-zinc-100 via-zinc-50 to-zinc-100">
+    <div className="flex items-center justify-center min-h-screen" style={{ background: "#d6d1c9" }}>
       {/* Mobile phone frame */}
       <div className="relative w-[390px] h-[844px] bg-zinc-900 rounded-[50px] shadow-2xl overflow-hidden border-4 border-zinc-800">
         {/* Status bar */}
