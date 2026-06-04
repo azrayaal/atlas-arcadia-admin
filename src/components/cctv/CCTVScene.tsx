@@ -1,5 +1,3 @@
-import { useEffect, useRef } from "react"
-
 /* ─── CCTV visual effect overlay ─────────────────────────── */
 function CCTVOverlay() {
   return (
